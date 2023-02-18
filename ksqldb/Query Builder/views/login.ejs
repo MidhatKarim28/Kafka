@@ -1,0 +1,37 @@
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login form</title>
+    <link href="/css/login.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <ul>
+        <% if (typeof errors != 'undefined') { %> <% errors.forEach(error => { %>
+        <li><%= error.message %></li>
+        <% }) %> <% } %>
+      </ul>
+  
+      <ul>
+        <% if(messages.success_msg) { %>
+        <li><%= messages.success_msg %></li>
+        <% } %>
+      </ul>
+  
+      <ul>
+        <% if (messages.error) { %>
+        <li><%= messages.error %></li>
+        <% } %>
+      </ul>
+      <form action="/users/login" method="POST">
+        <img class = "center" src="data:image/jpeg;base64,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" alt="Pumpjack logo">
+        <h3>Pumpjack Dataworks</h3>
+        <input type="text" id="username" name="username" placeholder="Username" >
+        <input type="password" id="password" name="password" placeholder="Password">      
+        <input type = "submit" class ="button-1" value="Login Account"></input> 
+        <input type = "submit" class ="button-2" value="New Miner? Register"></input> 
+      </form>
+</body>
+</html>
+
